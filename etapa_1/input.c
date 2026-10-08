@@ -104,3 +104,6 @@ int input_ask_yes_no(const char question[])
 		printf("Error: responda \"s\" o \"N\".\n");
 	}
 }
+
+
+//HOLA. 
