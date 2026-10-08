@@ -1,0 +1,39 @@
+
+[2026] SAUCEM S.L. Recolector de redes inalámbricas
+
+    [ 1] wificollector_quit
+    [ 2] wificollector_collect
+    [ 3] wificollector_show_data_one_network
+    [ 4] wificollector_select_best
+    [ 5] wificollector_delete_net
+    [ 6] wificollector_sort
+    [ 7] wificollector_export
+    [ 8] wificollector_import
+    [ 9] wificollector_display
+    [10] wificollector_display_all
+
+    Opción elegida: ¿Qué celda quiere recolectar? (1 - 21): Datos leídos de info_cell_1.txt (añadidos a la posición 0 del array)
+Cell 1: 00:01:38:1F:CB:3E "PTNET" Master 2 on 70/70 2.417000 -33
+
+Datos leídos de info_cell_1.txt (añadidos a la posición 1 del array)
+Cell 1: 00:27:0D:56:01:61 "eduroam" Master 6 on 55/70 2.437000 -55
+
+Datos leídos de info_cell_1.txt (añadidos a la posición 2 del array)
+Cell 1: 00:18:F8:7A:31:4A "GAST-WIFI" Master 1 on 37/70 2.412000 -73
+
+¿Desea añadir otro punto de acceso? [s/N]: 
+[2026] SAUCEM S.L. Recolector de redes inalámbricas
+
+    [ 1] wificollector_quit
+    [ 2] wificollector_collect
+    [ 3] wificollector_show_data_one_network
+    [ 4] wificollector_select_best
+    [ 5] wificollector_delete_net
+    [ 6] wificollector_sort
+    [ 7] wificollector_export
+    [ 8] wificollector_import
+    [ 9] wificollector_display
+    [10] wificollector_display_all
+
+    Opción elegida: 
+Fin de la entrada de datos.

@@ -1,0 +1,18 @@
+digraph G {
+ graph [fontname="DejaVu Sans", fontsize=13, pad=0.3, nodesep=0.4, ranksep=0.42, dpi=120, rankdir=TB];
+ node [fontname="DejaVu Sans", fontsize=11, style=filled, fillcolor=white, color="#34495e", penwidth=1.3];
+ edge [fontname="DejaVu Sans", fontsize=10, color="#34495e", arrowsize=0.8];
+ user [label="Usuario\n(teclado y pantalla)", shape=box, style="rounded,filled", fillcolor="#d6eaf8"];
+ main [label="main.c\nmenú principal y bucle\n(Etapa 2)", shape=box, fillcolor="#fdebd0"];
+ wfc [label="wificollector.c / .h\noperaciones: quit, collect,\ndisplay, display_all\n+ array cells[200] y num_cells\n(Etapas 2, 5 y 6)", shape=box, fillcolor="#fdebd0"];
+ inp [label="input.c / .h\nlectura robusta del teclado\n(Etapa 1)", shape=box, fillcolor="#d5f5e3"];
+ cell [label="cell.c / .h\nstruct wifi_cell, cell_print,\ncell_read_block\n(Etapas 3 y 4)", shape=box, fillcolor="#d5f5e3"];
+ files [label="info_cell_1.txt ... info_cell_21.txt\n(ficheros de texto con los datos)", shape=note, fillcolor="#fcf3cf"];
+ user -> main [label="elige opción"];
+ main -> wfc [label="llama a las operaciones"];
+ main -> inp [label="pide la opción"];
+ wfc -> inp [label="pregunta al usuario"];
+ wfc -> cell [label="imprime / lee celdas"];
+ wfc -> files [label="fopen / fclose", style=dashed];
+ cell -> files [label="fgets / sscanf", style=dashed];
+}

@@ -1,0 +1,21 @@
+digraph G {
+ graph [fontname="DejaVu Sans", fontsize=13, pad=0.3, nodesep=0.4, ranksep=0.42, dpi=120, rankdir=TB];
+ node [fontname="DejaVu Sans", fontsize=11, style=filled, fillcolor=white, color="#34495e", penwidth=1.3];
+ edge [fontname="DejaVu Sans", fontsize=10, color="#34495e", arrowsize=0.8];
+ s [label="input_ask_number(question, min, max)", shape=box, style="rounded,filled", fillcolor="#d6eaf8"];
+ p [label="printf(question)", shape=parallelogram, fillcolor="#d5f5e3"];
+ rl [label="input_read_line(line)", shape=parallelogram, fillcolor="#d5f5e3"];
+ eof [label="¿se acabó\nla entrada?", shape=diamond, fillcolor="#fcf3cf", margin="0.05,0.02"];
+ re [label="return INP_EOF", shape=box, style="rounded,filled", fillcolor="#e8daef"];
+ ok [label="¿sscanf(\"%d %c\") == 1\ny min <= número <= max?", shape=diamond, fillcolor="#fcf3cf", margin="0.05,0.02"];
+ rn [label="return número", shape=box, style="rounded,filled", fillcolor="#e8daef"];
+ er [label="Error: debe escribir un número\nentero entre min y max", shape=box, fillcolor="#fadbd8"];
+ s -> p;
+ p -> rl;
+ rl -> eof;
+ eof -> re [label="sí"];
+ eof -> ok [label="no"];
+ ok -> rn [label="sí"];
+ ok -> er [label="no"];
+ er -> p [constraint=false];
+}

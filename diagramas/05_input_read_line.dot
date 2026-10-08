@@ -1,0 +1,23 @@
+digraph G {
+ graph [fontname="DejaVu Sans", fontsize=13, pad=0.3, nodesep=0.4, ranksep=0.42, dpi=120, rankdir=TB];
+ node [fontname="DejaVu Sans", fontsize=11, style=filled, fillcolor=white, color="#34495e", penwidth=1.3];
+ edge [fontname="DejaVu Sans", fontsize=10, color="#34495e", arrowsize=0.8];
+ s [label="input_read_line(line, size)", shape=box, style="rounded,filled", fillcolor="#d6eaf8"];
+ g [label="fgets(line, size, stdin)", shape=parallelogram, fillcolor="#d5f5e3"];
+ n [label="¿devolvió NULL?\n(no hay más entrada)", shape=diamond, fillcolor="#fcf3cf", margin="0.05,0.02"];
+ r0 [label="return 0", shape=box, style="rounded,filled", fillcolor="#e8daef"];
+ l [label="length = strlen(line)", shape=box];
+ nl [label="¿el último carácter\nes '\\n'?", shape=diamond, fillcolor="#fcf3cf", margin="0.05,0.02"];
+ q [label="sustituir el '\\n' por '\\0'", shape=box];
+ d [label="descartar el resto de la línea:\ngetchar() hasta '\\n' o EOF", shape=parallelogram, fillcolor="#d5f5e3"];
+ r1 [label="return 1", shape=box, style="rounded,filled", fillcolor="#e8daef"];
+ s -> g;
+ g -> n;
+ n -> r0 [label="sí"];
+ n -> l [label="no"];
+ l -> nl;
+ nl -> q [label="sí"];
+ nl -> d [label="no\n(línea demasiado larga)"];
+ q -> r1;
+ d -> r1;
+}

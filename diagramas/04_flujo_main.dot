@@ -1,0 +1,36 @@
+digraph G {
+ graph [fontname="DejaVu Sans", fontsize=13, pad=0.3, nodesep=0.4, ranksep=0.42, dpi=120, rankdir=TB];
+ node [fontname="DejaVu Sans", fontsize=11, style=filled, fillcolor=white, color="#34495e", penwidth=1.3];
+ edge [fontname="DejaVu Sans", fontsize=10, color="#34495e", arrowsize=0.8];
+ s [label="Inicio", shape=box, style="rounded,filled", fillcolor="#d6eaf8"];
+ i [label="salir = 0", shape=box];
+ c [label="¿salir == 0?", shape=diamond, fillcolor="#fcf3cf", margin="0.05,0.02"];
+ m [label="print_menu()", shape=box];
+ r [label="opción = input_ask_number(1..10)", shape=parallelogram, fillcolor="#d5f5e3"];
+ sw [label="switch (opción)", shape=diamond, fillcolor="#fcf3cf", margin="0.05,0.02"];
+ o0 [label="INP_EOF:\nse acabó la entrada\nsalir = 1", shape=box];
+ o1 [label="1 (QUIT):\nsalir = wificollector_quit()", shape=box];
+ o2 [label="2 (COLLECT):\nwificollector_collect()", shape=box];
+ o9 [label="9 (DISPLAY):\nwificollector_display()", shape=box];
+ o10 [label="10 (DISPLAY_ALL):\nwificollector_display_all()", shape=box];
+ od [label="resto: \"todavía no\nimplementada\"", shape=box, fillcolor="#fadbd8"];
+ f [label="Fin (return 0)", shape=box, style="rounded,filled", fillcolor="#d6eaf8"];
+ s -> i;
+ i -> c;
+ c -> m [label="sí"];
+ c -> f [label="no"];
+ m -> r;
+ r -> sw;
+ sw -> o0;
+ sw -> o1;
+ sw -> o2;
+ sw -> o9;
+ sw -> o10;
+ sw -> od;
+ o0 -> c [constraint=false];
+ o1 -> c [constraint=false];
+ o2 -> c [constraint=false];
+ o9 -> c [constraint=false];
+ o10 -> c [constraint=false];
+ od -> c [constraint=false];
+}

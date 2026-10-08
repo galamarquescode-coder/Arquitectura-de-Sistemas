@@ -1,0 +1,20 @@
+digraph G {
+ graph [fontname="DejaVu Sans", fontsize=13, pad=0.3, nodesep=0.4, ranksep=0.42, dpi=120, rankdir=LR];
+ node [fontname="DejaVu Sans", fontsize=11, style=filled, fillcolor=white, color="#34495e", penwidth=1.3];
+ edge [fontname="DejaVu Sans", fontsize=10, color="#34495e", arrowsize=0.8];
+ main [label="main.c", shape=box, fillcolor="#fcf3cf"]; main_o [label="main.o", shape=box, fillcolor="#d5f5e3"];
+ main -> main_o [label="gcc -Wall -c"];
+ input [label="input.c", shape=box, fillcolor="#fcf3cf"]; input_o [label="input.o", shape=box, fillcolor="#d5f5e3"];
+ input -> input_o [label="gcc -Wall -c"];
+ cell [label="cell.c", shape=box, fillcolor="#fcf3cf"]; cell_o [label="cell.o", shape=box, fillcolor="#d5f5e3"];
+ cell -> cell_o [label="gcc -Wall -c"];
+ wificollector [label="wificollector.c", shape=box, fillcolor="#fcf3cf"]; wificollector_o [label="wificollector.o", shape=box, fillcolor="#d5f5e3"];
+ wificollector -> wificollector_o [label="gcc -Wall -c"];
+ hdr [label="cabeceras .h\n(#include)", shape=note, fillcolor="#fdebd0"];
+ exe [label="main\n(programa ejecutable)", shape=box, style="rounded,filled", fillcolor="#d6eaf8"];
+ main_o -> exe [label="enlazador (gcc -o main)"];
+ input_o -> exe;
+ cell_o -> exe;
+ wificollector_o -> exe;
+ hdr -> main [style=dashed]; hdr -> input [style=dashed]; hdr -> cell [style=dashed]; hdr -> wificollector [style=dashed];
+}

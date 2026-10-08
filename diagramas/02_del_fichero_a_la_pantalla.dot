@@ -1,0 +1,14 @@
+digraph G {
+ graph [fontname="DejaVu Sans", fontsize=13, pad=0.3, nodesep=0.4, ranksep=0.42, dpi=120, rankdir=TB];
+ node [fontname="DejaVu Sans", fontsize=11, style=filled, fillcolor=white, color="#34495e", penwidth=1.3];
+ edge [fontname="DejaVu Sans", fontsize=10, color="#34495e", arrowsize=0.8];
+ f [label="info_cell_N.txt\n(bloques de 9 líneas)", shape=note, fillcolor="#fcf3cf"];
+ l [label="lines[9][80]\n9 cadenas de texto\n(variable local)", shape=box, fillcolor="#d5f5e3"];
+ c [label="struct wifi_cell cell\n(variable local, ya con\nnúmeros y textos separados)", shape=box, fillcolor="#d5f5e3"];
+ a [label="cells[num_cells]\n(array global de 200)", shape=box, fillcolor="#fdebd0"];
+ s [label="Pantalla\nCell 1: 00:01:38:... \"PTNET\" ...", shape=box, style="rounded,filled", fillcolor="#d6eaf8"];
+ f -> l [label="9 × fgets\n(read_block_lines)"];
+ l -> c [label="9 × sscanf\n(cell_read_block)"];
+ c -> a [label="cells[position] = cell\n(si el bloque es correcto)"];
+ a -> s [label="cell_print()"];
+}
